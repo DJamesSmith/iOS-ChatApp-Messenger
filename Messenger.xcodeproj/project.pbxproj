@@ -22,6 +22,7 @@
 		CE7BFE152AD5823500B7967E /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7BFE142AD5823500B7967E /* NewConversationViewController.swift */; };
 		CE7BFE172AD5824100B7967E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7BFE162AD5824100B7967E /* ProfileViewController.swift */; };
 		CE7BFE1A2AD5A1CA00B7967E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7BFE192AD5A1CA00B7967E /* Extensions.swift */; };
+		CEFA0B3B2AD827DF00FFF3EE /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA0B3A2AD827DF00FFF3EE /* DatabaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		CE7BFE142AD5823500B7967E /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		CE7BFE162AD5824100B7967E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CE7BFE192AD5A1CA00B7967E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CEFA0B3A2AD827DF00FFF3EE /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				CE7BFDF22AD56D0B00B7967E /* AppDelegate.swift */,
 				CE7BFDF42AD56D0B00B7967E /* SceneDelegate.swift */,
 				CE7BFE192AD5A1CA00B7967E /* Extensions.swift */,
+				CEFA0B3A2AD827DF00FFF3EE /* DatabaseManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -139,11 +142,11 @@
 			isa = PBXGroup;
 			children = (
 				CE7BFDF62AD56D0B00B7967E /* ConversationsViewController.swift */,
-				CE7BFE142AD5823500B7967E /* NewConversationViewController.swift */,
-				CE7BFE162AD5824100B7967E /* ProfileViewController.swift */,
 				CE7BFE182AD58C2400B7967E /* Login */,
 				CE7BFE102AD581F000B7967E /* PhotoViewerViewController.swift */,
 				CE7BFE122AD5820100B7967E /* VideoPlayerViewController.swift */,
+				CE7BFE162AD5824100B7967E /* ProfileViewController.swift */,
+				CE7BFE142AD5823500B7967E /* NewConversationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE7BFE0D2AD581BA00B7967E /* LoginViewController.swift in Sources */,
+				CEFA0B3B2AD827DF00FFF3EE /* DatabaseManager.swift in Sources */,
 				CE7BFE0F2AD581DD00B7967E /* RegisterViewController.swift in Sources */,
 				CE7BFE152AD5823500B7967E /* NewConversationViewController.swift in Sources */,
 				CE7BFDF72AD56D0B00B7967E /* ConversationsViewController.swift in Sources */,
