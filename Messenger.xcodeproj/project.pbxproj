@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3BF8311A13208E1280FBB38C /* Pods_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6798313CAE42557F2F570233 /* Pods_Messenger.framework */; };
-		CE0770DD2AD6D71C000EB7B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE0770DC2AD6D71C000EB7B7 /* GoogleService-Info.plist */; };
+		CE1BB40A2AD969C7002CEFD1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE1BB4092AD969C7002CEFD1 /* GoogleService-Info.plist */; };
+		CE1BB4102AD9B084002CEFD1 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1BB40F2AD9B084002CEFD1 /* ChatViewController.swift */; };
 		CE7BFDF32AD56D0B00B7967E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7BFDF22AD56D0B00B7967E /* AppDelegate.swift */; };
 		CE7BFDF52AD56D0B00B7967E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7BFDF42AD56D0B00B7967E /* SceneDelegate.swift */; };
 		CE7BFDF72AD56D0B00B7967E /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7BFDF62AD56D0B00B7967E /* ConversationsViewController.swift */; };
@@ -29,7 +30,9 @@
 		6798313CAE42557F2F570233 /* Pods_Messenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Messenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9474669C7A14834B94545039 /* Pods-Messenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Messenger.debug.xcconfig"; path = "Target Support Files/Pods-Messenger/Pods-Messenger.debug.xcconfig"; sourceTree = "<group>"; };
 		A4AEAF72108B2B5F3B0048C4 /* Pods-Messenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Messenger.release.xcconfig"; path = "Target Support Files/Pods-Messenger/Pods-Messenger.release.xcconfig"; sourceTree = "<group>"; };
-		CE0770DC2AD6D71C000EB7B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE1BB4092AD969C7002CEFD1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE1BB40B2AD9712C002CEFD1 /* GoogleSignIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE1BB40F2AD9B084002CEFD1 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		CE7BFDEF2AD56D0B00B7967E /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7BFDF22AD56D0B00B7967E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7BFDF42AD56D0B00B7967E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 		77A399992390E684DCBC4D48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE1BB40B2AD9712C002CEFD1 /* GoogleSignIn.framework */,
 				6798313CAE42557F2F570233 /* Pods_Messenger.framework */,
 			);
 			name = Frameworks;
@@ -100,7 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				CEFA0B3C2AD8694600FFF3EE /* Messenger.entitlements */,
-				CE0770DC2AD6D71C000EB7B7 /* GoogleService-Info.plist */,
+				CE1BB4092AD969C7002CEFD1 /* GoogleService-Info.plist */,
 				CE7BFE062AD5809F00B7967E /* Resources */,
 				CE7BFE0B2AD580CA00B7967E /* ViewModels */,
 				CE7BFE0A2AD580C500B7967E /* Models */,
@@ -144,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				CE7BFDF62AD56D0B00B7967E /* ConversationsViewController.swift */,
+				CE1BB40F2AD9B084002CEFD1 /* ChatViewController.swift */,
 				CE7BFE182AD58C2400B7967E /* Login */,
 				CE7BFE102AD581F000B7967E /* PhotoViewerViewController.swift */,
 				CE7BFE122AD5820100B7967E /* VideoPlayerViewController.swift */,
@@ -237,7 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE7BFDFF2AD56D0C00B7967E /* LaunchScreen.storyboard in Resources */,
-				CE0770DD2AD6D71C000EB7B7 /* GoogleService-Info.plist in Resources */,
+				CE1BB40A2AD969C7002CEFD1 /* GoogleService-Info.plist in Resources */,
 				CE7BFDFC2AD56D0C00B7967E /* Assets.xcassets in Resources */,
 				CE7BFDFA2AD56D0B00B7967E /* Main.storyboard in Resources */,
 			);
@@ -302,6 +307,7 @@
 				CE7BFDF32AD56D0B00B7967E /* AppDelegate.swift in Sources */,
 				CE7BFE172AD5824100B7967E /* ProfileViewController.swift in Sources */,
 				CE7BFDF52AD56D0B00B7967E /* SceneDelegate.swift in Sources */,
+				CE1BB4102AD9B084002CEFD1 /* ChatViewController.swift in Sources */,
 				CE7BFE112AD581F000B7967E /* PhotoViewerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,6 +466,8 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Messenger/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to take a profile picture";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please allow access to select a photo for your profile";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -491,6 +499,8 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Messenger/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to take a profile picture";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please allow access to select a photo for your profile";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
