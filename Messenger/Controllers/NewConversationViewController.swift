@@ -10,19 +10,21 @@ import JGProgressHUD
 
 class NewConversationViewController: UIViewController {
     
+    public var completion: (([String: String]) -> (Void))?
+
     private let spinner = JGProgressHUD(style: .dark)
-    
+
     private var users = [[String:  String]]()
     private var results = [[String:  String]]()
     private var hasFetched = false
-    
+
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Search for Users.."
         
         return searchBar
     }()
-    
+
     private let tableView: UITableView = {
         let table = UITableView()
         table.isHidden = true
@@ -42,6 +44,7 @@ class NewConversationViewController: UIViewController {
         return label
     }()
     
+    // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -71,6 +74,7 @@ class NewConversationViewController: UIViewController {
     }
 }
 
+// MARK: Extension TableView
 extension NewConversationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
@@ -86,10 +90,16 @@ extension NewConversationViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         // Start conversation
+        let targetUserData = results[indexPath.row]
+
+        dismiss(animated: true, completion: { [weak self] in
+            self?.completion?(targetUserData)
+        })
         
     }
 }
 
+// MARK: Extension SearchBar
 extension NewConversationViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text, !text.replacingOccurrences(of: " ", with: "").isEmpty else { return }

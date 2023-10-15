@@ -237,6 +237,7 @@ class RegisterViewController: UIViewController {
     }
 }
 
+// MARK: Extension TextField
 extension RegisterViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailField {
@@ -249,6 +250,7 @@ extension RegisterViewController: UITextFieldDelegate {
     }
 }
 
+// MARK: Extension ImagePicker
 extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func presentPhotoActionSheet() {
         let actionSheet = UIAlertController(title: "Profile Picture", message: "How would you like to select a picture?", preferredStyle: .actionSheet)

@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     
     let data = ["Log Out"]
 
+    // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -70,6 +71,7 @@ class ProfileViewController: UIViewController {
     }
 }
 
+// MARK: Extension TableView
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
