@@ -79,10 +79,18 @@ class LoginViewController: UIViewController {
         button.permissions = ["public_profile", "email"]
         return button
     }()
+    
+    private var loginObserver: NSObjectProtocol?
 
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginObserver = NotificationCenter.default.addObserver(forName: .didLogInNotification, object: nil, queue: .main, using: { [weak self] _ in
+            guard let strongSelf = self else { return }
+            
+            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+        })
 
         title = "Login"
         view.backgroundColor = .white
