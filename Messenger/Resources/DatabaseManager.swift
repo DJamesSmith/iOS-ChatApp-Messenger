@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseDatabase
+import MessageKit
 
 final class DatabaseManager {
     
@@ -363,9 +364,27 @@ extension DatabaseManager {
                       let date = ChatViewController.dateFormatter.date(from: dateString) else {
                     return nil
                 }
+                
+                var kind: MessageKind?
+                if type == "photo" {
+                    // Photo
+                    guard let imageUrl = URL(string: content),
+                          let placeholder = UIImage(systemName: "plus") else {
+                        return nil
+                    }
+                    let media = Media(url: imageUrl, image: nil, placeholderImage: placeholder, size: CGSize(width: 300, height: 300))
+                    kind = .photo(media)
+                } else {
+                    // Text based
+                    kind = .text(content)
+                }
+                
+                guard let finalKind = kind else {
+                    return nil
+                }
 
                 let sender = Sender(photoURL: "", senderId: senderEmail, displayName: name)
-                return Message(sender: sender, messageId: messageId, sentDate: date, kind: .text(content))
+                return Message(sender: sender, messageId: messageId, sentDate: date, kind: finalKind)
             })
 
             completion(.success(messages))
@@ -401,7 +420,11 @@ extension DatabaseManager {
                 message = messageText
             case .attributedText(_):
                 break
-            case .photo(_):
+            case .photo(let mediaItem):
+                if let targetUrlString = mediaItem.url?.absoluteString {
+                    message = targetUrlString
+                }
+                
                 break
             case .video(_):
                 break
@@ -419,7 +442,7 @@ extension DatabaseManager {
                 break
             }
             
-            guard var myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
+            guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
                 completion(false)
                 return
             }
