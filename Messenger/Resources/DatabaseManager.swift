@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseDatabase
 import MessageKit
+import CoreLocation
 
 final class DatabaseManager {
     
@@ -356,7 +357,7 @@ extension DatabaseManager {
             let messages: [Message] = value.compactMap({ dictionary in
                 guard let name = dictionary["name"] as? String,
                       let isRead = dictionary["is_read"] as? Bool,
-                      let messageId = dictionary["id"] as? String,
+                      let messageID = dictionary["id"] as? String,
                       let content = dictionary["content"] as? String,
                       let senderEmail = dictionary["sender_email"] as? String,
                       let type = dictionary["type"] as? String,
@@ -382,6 +383,18 @@ extension DatabaseManager {
                     }
                     let media = Media(url: videoUrl, image: nil, placeholderImage: placeholder, size: CGSize(width: 300, height: 300))
                     kind = .video(media)
+                } else if type == "location" {
+                    // Location
+                    let locationComponents = content.components(separatedBy: ",")
+                    guard let longitude = Double(locationComponents[0]),
+                          let latitude = Double(locationComponents[1]) else {
+                        return nil
+                    }
+                    
+                    print("Rendering location: Long=\(longitude) | Lat=\(latitude)")
+
+                    let location = Location(location: CLLocation(latitude: latitude, longitude: longitude), size: CGSize(width: 300, height: 300))
+                    kind = .location(location)
                 } else {
                     // Text based
                     kind = .text(content)
@@ -392,13 +405,13 @@ extension DatabaseManager {
                 }
 
                 let sender = Sender(photoURL: "", senderId: senderEmail, displayName: name)
-                return Message(sender: sender, messageId: messageId, sentDate: date, kind: finalKind)
+                return Message(sender: sender, messageId: messageID, sentDate: date, kind: finalKind)
             })
 
             completion(.success(messages))
         })
     }
-    
+
     // MARK: Sends a message with target conversation and message
     public func sendMessage(to conversation: String, otherUserEmail: String, name: String, newMessage: Message, completion: @escaping (Bool) -> Void) {
         // Add new message to messages
@@ -440,7 +453,9 @@ extension DatabaseManager {
                 }
 
                 break
-            case .location(_):
+            case .location(let locationData):
+                let location = locationData.location
+                message = "\(location.coordinate.longitude), \(location.coordinate.latitude)"
                 break
             case .emoji(_):
                 break
