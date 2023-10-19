@@ -211,6 +211,8 @@
 			dependencies = (
 			);
 			name = Messenger;
+			packageProductDependencies = (
+			);
 			productName = Messenger;
 			productReference = CE7BFDEF2AD56D0B00B7967E /* Messenger.app */;
 			productType = "com.apple.product-type.application";
@@ -239,6 +241,8 @@
 				Base,
 			);
 			mainGroup = CE7BFDE62AD56D0B00B7967E;
+			packageReferences = (
+			);
 			productRefGroup = CE7BFDF02AD56D0B00B7967E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -478,6 +482,7 @@
 				CODE_SIGN_ENTITLEMENTS = Messenger/Messenger.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 894ZS4638M;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -512,6 +517,7 @@
 				CODE_SIGN_ENTITLEMENTS = Messenger/Messenger.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 894ZS4638M;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
